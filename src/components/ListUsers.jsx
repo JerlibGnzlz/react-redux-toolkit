@@ -8,15 +8,16 @@ export const ListUsers = () => {
 
     const dispatch = useDispatch()
 
+    const fetchData = async () => {
+        try {
+            const response = await axios("https://jsonplaceholder.typicode.com/users");
+            console.log("Datos de la API:", response.data);
+        } catch (error) {
+            console.error("Error al obtener los datos:", error);
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios("https://jsonplaceholder.typicode.com/users");
-                console.log("Datos de la API:", response.data);
-            } catch (error) {
-                console.error("Error al obtener los datos:", error);
-            }
-        };
 
         fetchData();
 
