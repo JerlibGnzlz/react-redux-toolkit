@@ -4,10 +4,8 @@ import usersReducer from "./usersSlice";
 
 
 
-const store = configureStore({
+export const store = configureStore({
     reducer: {
         users: usersReducer
     }
 })
-
-export default store

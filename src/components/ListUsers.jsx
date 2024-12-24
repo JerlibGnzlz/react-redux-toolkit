@@ -27,11 +27,13 @@ export const ListUsers = () => {
             {users.length === 0 ? (
                 <p>Cargando Usuarios...</p>
             ) : (
-                <ul>
+                <ul style={{ listStyleType: 'none' }}>
                     {users.map((user) => (
-                        <li key={user.id}>{user.name}</li>
+                        <li
+
+                            key={user.id}>{user.name}</li>
                     ))}
-                </ul>
+                </ul >
             )}
         </>
     );
