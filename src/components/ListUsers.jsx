@@ -9,28 +9,30 @@ export const ListUsers = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    "https://jsonplaceholder.typicode.com/users"
-                );
-                console.log("Datos de la API:", response.data);
-                dispatch(fetchUsers(response.data));
-            } catch (error) {
-                console.error("Error al obtener los datos:", error);
-            }
-        };
-        fetchData();
+        axios.get("https://jsonplaceholder.typicode.com/users")
+            .then((res) => {
+                console.log(res)
+                dispatch(fetchUsers(res));
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+
+
     }, [dispatch]);
 
     return (
         <>
             <h2>Lista de Usuario de placeholders</h2>
-            <ul>
-                {users.map((user) => (
-                    <li key={user.id}>{user.name}</li>
-                ))}
-            </ul>
+            {users.length === 0 ? (
+                <p>Cargando Usuarios...</p>
+            ) : (
+                <ul>
+                    {users.map((user) => (
+                        <li key={user.id}>{user.name}</li>
+                    ))}
+                </ul>
+            )}
         </>
     );
 };
