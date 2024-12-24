@@ -11,8 +11,8 @@ export const ListUsers = () => {
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/users")
             .then((res) => {
-                console.log(res)
-                dispatch(fetchUsers(res));
+                console.log(res.data)
+                dispatch(fetchUsers(res.data));
             })
             .catch((error) => {
                 console.log(error)

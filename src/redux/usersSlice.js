@@ -5,7 +5,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const usersSlice = createSlice({
     name: "users",
     initialState: [],
-    reducer: {
+    reducers: {
         fetchUsers: (state, action) => {
             return action.payload
         }
