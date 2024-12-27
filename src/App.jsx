@@ -1,5 +1,6 @@
 
 import './App.css'
+import { ListProducts } from './components/ListProducts'
 import { ListUsers } from './components/ListUsers'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <h1>Vite + React + Redux_toolkit</h1>
       <ListUsers />
+      <ListProducts />
     </>
   )
 }
