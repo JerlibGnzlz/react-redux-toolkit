@@ -8,17 +8,20 @@ export const ListUsers = () => {
 
     const dispatch = useDispatch();
 
+
+    const fetchData = async () => {
+
+        try {
+            const response = await axios.get("https://jsonplaceholder.typicode.com/users")
+
+            dispatch(fetchUsers(response.data))
+        } catch (error) {
+            console.log("Error al obtener los datos", error)
+        }
+    }
+
     useEffect(() => {
-        axios.get("https://jsonplaceholder.typicode.com/users")
-            .then((res) => {
-                console.log(res.data)
-                dispatch(fetchUsers(res.data));
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
-
+        fetchData()
     }, [dispatch]);
 
     return (
@@ -28,7 +31,7 @@ export const ListUsers = () => {
                 <p>Cargando Usuarios...</p>
             ) : (
                 <ul style={{ listStyleType: 'none' }}>
-                    {users.map((user) => (
+                    {users?.map((user) => (
                         <li
                             key={user.id}>{user.name}</li>
                     ))}
