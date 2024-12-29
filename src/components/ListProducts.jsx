@@ -13,14 +13,11 @@ export const ListProducts = () => {
     useEffect(() => {
         const fectchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3004/product")
+                const response = await axios("http://localhost:3004/products")
 
-                if (response.data) {
-                    console.log(response.data)
-                    dispatch(getProducts(response.data))
-                } else {
-                    throw new Error("La respuesta no contiene datos")
-                }
+                console.log(response.data)
+                dispatch(getProducts(response.data))
+
             } catch (error) {
                 console.log(error)
             }
@@ -34,13 +31,9 @@ export const ListProducts = () => {
             <h3>Lista de productos</h3>
 
             <ul>
-                {products && products.length > 0 ? (
-                    products.map((product) => (
-                        <li key={product.id}>{product.name}</li>
-                    ))
-                ) : (
-                    <p>No hay productos disponibles</p>
-                )}
+                {products?.data.map((product) => (
+                    <li key={product.id}>{product.name}</li>
+                ))}
             </ul>
 
             <aside>
