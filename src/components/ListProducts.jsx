@@ -5,7 +5,7 @@ import { getProducts } from "../redux/productsSlice"
 
 export const ListProducts = () => {
 
-    const products = useSelector((state) => state.products.data)
+    const products = useSelector((state) => state.products)
 
     const dispatch = useDispatch()
 
@@ -30,8 +30,8 @@ export const ListProducts = () => {
             <h2>CRUD de productos</h2>
             <h3>Lista de productos</h3>
 
-            <ul>
-                {products?.map((product) => (
+            <ul style={{ listStyleType: 'none' }}>
+                {products.data.map((product) => (
                     <li key={product.id}>{product.name}</li>
                 ))}
             </ul>
