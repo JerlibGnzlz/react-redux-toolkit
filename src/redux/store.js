@@ -7,6 +7,6 @@ import productResucer from "./productsSlice"
 export const store = configureStore({
     reducer: {
         users: usersReducer,
-        product: productResucer
+        products: productResucer
     }
 })
