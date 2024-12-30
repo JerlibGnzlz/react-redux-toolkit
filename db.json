@@ -1,16 +1,38 @@
 {
-    "products": [
-        {
-            "name": "Product 1",
-            "id": 111
-        },
-        {
-            "name": "Product 2",
-            "id": 222
-        },
-        {
-            "name": "Product 3",
-            "id": 333
-        }
-    ]
+  "products": [
+    {
+      "name": "Product 1",
+      "id": 111
+    },
+    {
+      "name": "Product 2",
+      "id": 222
+    },
+    {
+      "name": "Product 3",
+      "id": 333
+    },
+    {
+      "name": "carro",
+      "id": 1735590869007
+    },
+    {
+      "name": "CARRO",
+      "id": 1735590869008
+    },
+    {
+      "id": 1735590869009
+    },
+    {
+      "id": 1735590869010
+    },
+    {
+      "CAMA": "",
+      "id": 1735590869011
+    },
+    {
+      "name": "camion",
+      "id": 1735590869012
+    }
+  ]
 }

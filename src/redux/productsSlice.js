@@ -11,7 +11,9 @@ const productsSlice = createSlice({
         getProducts: (state, action) => {
             state.data = action.payload
         },
-        createProduct: (state, action) => { },
+        createProduct: (state, action) => {
+            state.data.push(action.payload)
+        },
         updateProduct: (state, action) => { },
         deleteProduct: (state, action) => { },
     }

@@ -1,11 +1,12 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getProducts } from "../redux/productsSlice"
+import { createProduct, getProducts } from "../redux/productsSlice"
 
 export const ListProducts = () => {
 
     const products = useSelector((state) => state.products)
+    const [newProductName, setNewProductName] = useState("")
 
     const dispatch = useDispatch()
 
@@ -25,6 +26,33 @@ export const ListProducts = () => {
         fectchData()
     }, [dispatch])
 
+    const handleCreateProduct = () => {
+        if (newProductName) {
+
+            dispatch(createProduct(newProductName))
+
+            try {
+                axios.post("http://localhost:3004/products", { name: newProductName })
+                setNewProductName("")
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            console.log("Debe agregar productos")
+        }
+
+    }
+
+
+    const handleUpdateProduct = () => {
+
+    }
+
+
+    const handleDeleteProduct = () => {
+
+    }
+
     return (
         <>
             <h2>CRUD de productos</h2>
@@ -37,8 +65,11 @@ export const ListProducts = () => {
             </ul>
 
             <aside>
-                <input type="text" />
-                <button>Agregar producto</button>
+                <input type="text"
+                    value={newProductName}
+                    onChange={(e) => setNewProductName(e.target.value)}
+                />
+                <button onClick={handleCreateProduct}>Agregar producto</button>
             </aside>
         </>
     );
