@@ -28,8 +28,10 @@ export const ListProducts = () => {
     const handleCreateProduct = async () => {
         if (newProductName) {
 
+            const nuevoProducto = { name: newProductName }
+
             try {
-                const response = await axios.post("http://localhost:3004/products", { name: newProductName })
+                const response = await axios.post("http://localhost:3004/products", nuevoProducto)
 
                 dispatch(createProduct(response.data))
                 setNewProductName("")
