@@ -16,7 +16,6 @@ export const ListProducts = () => {
             try {
                 const response = await axios("http://localhost:3004/products")
 
-                console.log(response.data)
                 dispatch(getProducts(response.data))
 
             } catch (error) {
@@ -26,13 +25,13 @@ export const ListProducts = () => {
         fectchData()
     }, [dispatch])
 
-    const handleCreateProduct = () => {
+    const handleCreateProduct = async () => {
         if (newProductName) {
 
-            dispatch(createProduct(newProductName))
-
             try {
-                axios.post("http://localhost:3004/products", { name: newProductName })
+                const response = await axios.post("http://localhost:3004/products", { name: newProductName })
+
+                dispatch(createProduct(response.data))
                 setNewProductName("")
             } catch (error) {
                 console.log(error)
@@ -40,7 +39,6 @@ export const ListProducts = () => {
         } else {
             console.log("Debe agregar productos")
         }
-
     }
 
 
