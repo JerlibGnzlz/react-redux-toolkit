@@ -62,13 +62,16 @@ export const ListProducts = () => {
             <ul style={{ listStyleType: 'none' }}>
                 {products.data.map((product) => (
 
-                    <li key={product.id}>{product.name}
-                        <span style={{ marginLeft: '20px' }}></span>
-                        <button onClick={handleCreateProduct}>Editar</button>
-                        <button style={{ margin: '10px' }}
-                            onClick={handleCreateProduct}>Eliminar</button>
-
-
+                    <li
+                        key={product.id}>
+                        <span style={{ margin: '10px' }} >{product.name}:</span>
+                        <button
+                            onClick={handleCreateProduct}>Editar
+                        </button>
+                        <button
+                            style={{ margin: '5px' }}
+                            onClick={handleCreateProduct}>Eliminar
+                        </button>
                     </li>
                 ))}
             </ul>
