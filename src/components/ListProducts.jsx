@@ -7,6 +7,7 @@ export const ListProducts = () => {
 
     const products = useSelector((state) => state.products)
     const [newProductName, setNewProductName] = useState("")
+    const [editProductName, setEditProductName] = useState(null)
 
     const dispatch = useDispatch()
 
@@ -60,7 +61,16 @@ export const ListProducts = () => {
 
             <ul style={{ listStyleType: 'none' }}>
                 {products.data.map((product) => (
-                    <li key={product.id}>{product.name}</li>
+
+                    <li key={product.id}>{product.name}
+                        <span style={{ marginLeft: '20px' }}>
+                            <button onClick={handleCreateProduct}>Editar</button>
+                            <button style={{ margin: '10px' }}
+                                onClick={handleCreateProduct}>Eliminar</button>
+                        </span>
+
+
+                    </li>
                 ))}
             </ul>
 
@@ -69,7 +79,7 @@ export const ListProducts = () => {
                     value={newProductName}
                     onChange={(e) => setNewProductName(e.target.value)}
                 />
-                <button onClick={handleCreateProduct}>Agregar producto</button>
+                <button style={{ margin: '10px' }} onClick={handleCreateProduct}>Agregar producto</button>
             </aside>
         </>
     );
