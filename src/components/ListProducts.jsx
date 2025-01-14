@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { createProduct, getProducts, updateProduct } from "../redux/productsSlice"
+import { createProduct, deleteProduct, getProducts, updateProduct } from "../redux/productsSlice"
 
 export const ListProducts = () => {
 
@@ -12,7 +12,6 @@ export const ListProducts = () => {
 
     const dispatch = useDispatch()
 
-    // const handleDelete = () => { }
 
     useEffect(() => {
         const fectchData = async () => {
@@ -60,9 +59,10 @@ export const ListProducts = () => {
     }
 
 
-    // const handleDeleteProduct = () => {
-
-    // }
+    const handleDeleteProduct = async (id) => {
+        dispatch(deleteProduct(id))
+        axios.delete(`http://localhost:3004/products/${id}`)
+    }
 
     return (
         <>
@@ -96,7 +96,7 @@ export const ListProducts = () => {
                                         Editar
                                     </button>
 
-                                    <button
+                                    <button onClick={() => handleDeleteProduct(product.id)}
                                         style={{ margin: '5px' }} >Eliminar
                                     </button>
                                 </div>
