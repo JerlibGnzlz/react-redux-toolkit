@@ -14,8 +14,14 @@ const productsSlice = createSlice({
         createProduct: (state, action) => {
             state.data.push(action.payload)
         },
-        updateProduct: (state, action) => { },
-        deleteProduct: (state, action) => { },
+        updateProduct: (state, action) => {
+            const { id, name } = action.payload
+            const producto = state.data.filter((product) => product.id === id)
+            if (producto) {
+                producto.name = name
+            }
+        },
+        // deleteProduct: (state, action) => { },
     }
 })
 

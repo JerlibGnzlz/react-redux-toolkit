@@ -1,24 +1,12 @@
 {
   "products": [
     {
-      "name": "Product 1",
+      "name": "Product 1sd",
       "id": 111
     },
     {
-      "name": "Product 2",
+      "name": "Product 2v",
       "id": 222
-    },
-    {
-      "name": "otro mas",
-      "id": 223
-    },
-    {
-      "name": "aaa",
-      "id": 224
-    },
-    {
-      "name": "sdsdsdsd",
-      "id": 225
     }
   ]
 }
