@@ -60,8 +60,12 @@ export const ListProducts = () => {
 
 
     const handleDeleteProduct = async (id) => {
-        dispatch(deleteProduct(id))
-        axios.delete(`http://localhost:3004/products/${id}`)
+        try {
+            dispatch(deleteProduct(id))
+            axios.delete(`http://localhost:3004/products/${id}`)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (

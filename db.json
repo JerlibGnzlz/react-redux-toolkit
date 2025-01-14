@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "name": "productos de pueba ",
-      "id": 1736832002260
-    },
-    {
       "name": "productos de marca",
       "id": 1736832017230
+    },
+    {
+      "name": "copas",
+      "id": 1736832155033
     }
   ]
 }
