@@ -16,7 +16,7 @@ const productsSlice = createSlice({
         },
         updateProduct: (state, action) => {
             const { id, name } = action.payload
-            const producto = state.data.filter((product) => product.id === id)
+            const producto = state.data.find((product) => product.id === id)
             if (producto) {
                 producto.name = name
             }

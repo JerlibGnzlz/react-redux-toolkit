@@ -49,9 +49,8 @@ export const ListProducts = () => {
     const handleUpdateProduct = async () => {
         if (editProduct && editName) {
             try {
-                const updatedProduct = { ...editProduct, name: editName }
-                await axios.put(`http://localhost:3004/products/${editProduct.id}`, updatedProduct)
-                dispatch(updateProduct(updatedProduct))
+                const response = await axios.put(`http://localhost:3004/products/${editProduct.id}`, { name: editName })
+                dispatch(updateProduct(response.data))
                 setEditProduct(null)
                 setEditName("")
             } catch (error) {
@@ -79,7 +78,7 @@ export const ListProducts = () => {
                             {editProduct?.id === product.id ? (
                                 <div>
                                     <input type="text"
-                                        value={editProduct.name}
+                                        value={editName}
                                         onChange={(e) => setEditName(e.target.value)}
                                     />
                                     <button onClick={handleUpdateProduct}>Actualizar</button>
