@@ -63,11 +63,10 @@ export const ListProducts = () => {
                 {products.data.map((product) => (
 
                     <li key={product.id}>{product.name}
-                        <span style={{ marginLeft: '20px' }}>
-                            <button onClick={handleCreateProduct}>Editar</button>
-                            <button style={{ margin: '10px' }}
-                                onClick={handleCreateProduct}>Eliminar</button>
-                        </span>
+                        <span style={{ marginLeft: '20px' }}></span>
+                        <button onClick={handleCreateProduct}>Editar</button>
+                        <button style={{ margin: '10px' }}
+                            onClick={handleCreateProduct}>Eliminar</button>
 
 
                     </li>
